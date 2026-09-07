@@ -5,188 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>هایپر پاندا | محاسبه‌گر تخم‌مرغ</title>
 <link rel="manifest" href="manifest.json">
+
 <style>
-*{
-    box-sizing:border-box;
-    font-family:Tahoma,Arial,sans-serif;
-}
-
-body{
-    margin:0;
-    min-height:100vh;
-    background:#f4f5f7;
-    color:#222;
-}
-
-.header{
-    background:#111;
-    color:white;
-    padding:22px 18px;
-    text-align:center;
-}
-
-.brand{
-    font-size:28px;
-    font-weight:bold;
-    margin-bottom:8px;
-}
-
-.header h1{
-    margin:0;
-    font-size:21px;
-}
-
-.header p{
-    margin:8px 0 0;
-    color:#bbb;
-    font-size:13px;
-}
-
-.container{
-    width:100%;
-    max-width:520px;
-    margin:auto;
-    padding:18px;
-}
-
-.card{
-    background:white;
-    border-radius:18px;
-    padding:20px;
-    margin-bottom:16px;
-    box-shadow:0 4px 18px rgba(0,0,0,.07);
-}
-
-.card h2{
-    margin-top:0;
-    font-size:19px;
-}
-
-label{
-    display:block;
-    margin-top:16px;
-    margin-bottom:7px;
-    font-size:14px;
-    font-weight:bold;
-}
-
-input{
-    width:100%;
-    padding:14px;
-    border:1px solid #ddd;
-    border-radius:12px;
-    font-size:16px;
-    outline:none;
-    background:white;
-}
-
-input:focus{
-    border-color:#111;
-}
-
-button{
-    width:100%;
-    border:none;
-    border-radius:13px;
-    padding:15px;
-    margin-top:20px;
-    background:#111;
-    color:white;
-    font-size:17px;
-    font-weight:bold;
-}
-
-button:active{
-    transform:scale(.98);
-}
-
-.secondary{
-    background:#eee;
-    color:#222;
-    margin-top:10px;
-}
-
-.result{
-    display:none;
-}
-
-.result-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:13px 0;
-    border-bottom:1px solid #eee;
-    gap:15px;
-}
-
-.result-row:last-child{
-    border-bottom:none;
-}
-
-.result-label{
-    color:#666;
-    font-size:14px;
-}
-
-.result-value{
-    font-weight:bold;
-    text-align:left;
-}
-
-.profit{
-    background:#f0f8f0;
-    border-radius:12px;
-    padding:5px 12px;
-    margin-top:12px;
-}
-
-.error{
-    display:none;
-    background:#ffe8e8;
-    color:#b00020;
-    padding:12px;
-    border-radius:10px;
-    margin-top:15px;
-    font-size:14px;
-}
-
-.saved{
-    display:none;
-    background:#e8f5e9;
-    color:#246b2a;
-    padding:12px;
-    border-radius:10px;
-    margin-top:15px;
-    font-size:14px;
-}
-
-.footer{
-    text-align:center;
-    color:#888;
-    font-size:12px;
-    padding:18px;
-    line-height:2;
-}
-
-.developer{
-    color:#555;
-    font-weight:bold;
-}
+*{box-sizing:border-box;font-family:Tahoma,Arial,sans-serif}
+body{margin:0;min-height:100vh;background:#f4f5f7;color:#222}
+.header{background:#111;color:#fff;padding:22px 18px;text-align:center}
+.brand{font-size:28px;font-weight:bold;margin-bottom:8px}
+.header h1{margin:0;font-size:21px}
+.header p{margin:8px 0 0;color:#bbb;font-size:13px}
+.container{width:100%;max-width:520px;margin:auto;padding:18px}
+.card{background:#fff;border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 4px 18px rgba(0,0,0,.07)}
+.card h2{margin-top:0;font-size:19px}
+label{display:block;margin-top:16px;margin-bottom:7px;font-size:14px;font-weight:bold}
+input{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;font-size:16px;outline:none;background:#fff}
+input:focus{border-color:#111}
+button{width:100%;border:0;border-radius:13px;padding:15px;margin-top:20px;background:#111;color:#fff;font-size:17px;font-weight:bold}
+button:active{transform:scale(.98)}
+.secondary{background:#eee;color:#222;margin-top:10px}
+.danger{background:#b00020;color:#fff;margin-top:10px}
+.result{display:none}
+.result-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid #eee;gap:15px}
+.result-row:last-child{border-bottom:0}
+.result-label{color:#666;font-size:14px}
+.result-value{font-weight:bold;text-align:left}
+.profit{background:#f0f8f0;border-radius:12px;padding:5px 12px;margin-top:12px}
+.error{display:none;background:#ffe8e8;color:#b00020;padding:12px;border-radius:10px;margin-top:15px;font-size:14px}
+.success{display:none;background:#e8f5e9;color:#246b2a;padding:12px;border-radius:10px;margin-top:15px;font-size:14px}
+.history-item{border:1px solid #eee;border-radius:14px;padding:15px;margin-bottom:12px;background:#fafafa}
+.history-date{font-size:12px;color:#888;margin-bottom:8px}
+.history-main{font-weight:bold;margin-bottom:8px}
+.history-profit{font-weight:bold}
+.history-actions{display:flex;gap:8px}
+.history-actions button{margin-top:10px;padding:10px;font-size:13px}
+.footer{text-align:center;color:#888;font-size:12px;padding:18px;line-height:2}
+.developer{color:#555;font-weight:bold}
+.empty{text-align:center;color:#999;padding:20px}
 </style>
 </head>
 
 <body>
 
 <div class="header">
-    <div class="brand">هایپر پاندا</div>
-    <h1>🥚 محاسبه‌گر تخم‌مرغ</h1>
-    <p>محاسبه خرید، فروش و سود و زیان</p>
+<div class="brand">هایپر پاندا</div>
+<h1>🥚 محاسبه‌گر تخم‌مرغ</h1>
+<p>محاسبه خرید، فروش و سود و زیان</p>
 </div>
 
 <div class="container">
 
 <div class="card">
-
 <h2>🛒 اطلاعات خرید</h2>
 
 <label>قیمت خرید هر کیلوگرم</label>
@@ -197,27 +64,22 @@ button:active{
 
 <label>تعداد واقعی تخم‌مرغ</label>
 <input id="eggCount" type="number" inputmode="numeric" placeholder="مثلاً 180">
-
 </div>
 
 <div class="card">
-
 <h2>💰 اطلاعات فروش</h2>
 
 <label>قیمت فروش هر کیلوگرم</label>
 <input id="salePrice" type="number" inputmode="decimal" placeholder="مثلاً 3000000">
 
-<button onclick="calculateAll()">محاسبه خرید، فروش و سود</button>
-
+<button onclick="calculateAll()">محاسبه و ذخیره</button>
 <button class="secondary" onclick="loadSaved()">📂 بازیابی آخرین اطلاعات</button>
 
 <div id="error" class="error"></div>
-<div id="saved" class="saved"></div>
-
+<div id="success" class="success"></div>
 </div>
 
 <div id="result" class="card result">
-
 <h2>📊 نتیجه نهایی</h2>
 
 <div class="result-row">
@@ -268,7 +130,14 @@ button:active{
 </div>
 
 </div>
+</div>
 
+<div class="card">
+<h2>📋 تاریخچه محاسبات</h2>
+
+<div id="historyList"></div>
+
+<button class="danger" onclick="clearHistory()">🗑 حذف کل تاریخچه</button>
 </div>
 
 </div>
@@ -284,190 +153,230 @@ button:active{
 const PAR_SANG = 1.2;
 
 function formatNumber(number){
-    return new Intl.NumberFormat('fa-IR').format(Math.round(number));
+return new Intl.NumberFormat('fa-IR').format(Math.round(number));
 }
 
 function formatWeight(number){
-    return number.toFixed(3);
+return number.toFixed(3);
+}
+
+function showSuccess(text){
+const box=document.getElementById("success");
+box.innerText=text;
+box.style.display="block";
 }
 
 function calculateAll(){
 
-    const purchasePrice =
-        parseFloat(document.getElementById("purchasePrice").value);
+const purchasePrice=parseFloat(document.getElementById("purchasePrice").value);
+const totalWeight=parseFloat(document.getElementById("totalWeight").value);
+const eggCount=parseInt(document.getElementById("eggCount").value);
+const salePrice=parseFloat(document.getElementById("salePrice").value);
 
-    const totalWeight =
-        parseFloat(document.getElementById("totalWeight").value);
+const error=document.getElementById("error");
+const result=document.getElementById("result");
 
-    const eggCount =
-        parseInt(document.getElementById("eggCount").value);
+error.style.display="none";
+document.getElementById("success").style.display="none";
 
-    const salePrice =
-        parseFloat(document.getElementById("salePrice").value);
+if(isNaN(purchasePrice)||isNaN(totalWeight)||isNaN(eggCount)||isNaN(salePrice)){
+error.innerText="لطفاً تمام اطلاعات خرید و فروش را وارد کنید.";
+error.style.display="block";
+result.style.display="none";
+return;
+}
 
-    const error =
-        document.getElementById("error");
+if(purchasePrice<=0){
+error.innerText="قیمت خرید باید بیشتر از صفر باشد.";
+error.style.display="block";
+return;
+}
 
-    const saved =
-        document.getElementById("saved");
+if(totalWeight<=PAR_SANG){
+error.innerText="وزن کل باید بیشتر از 1.200 کیلوگرم باشد.";
+error.style.display="block";
+return;
+}
 
-    const result =
-        document.getElementById("result");
+if(eggCount<=0){
+error.innerText="تعداد تخم‌مرغ باید بیشتر از صفر باشد.";
+error.style.display="block";
+return;
+}
 
-    error.style.display="none";
-    saved.style.display="none";
+if(salePrice<=0){
+error.innerText="قیمت فروش باید بیشتر از صفر باشد.";
+error.style.display="block";
+return;
+}
 
-    if(
-        isNaN(purchasePrice) ||
-        isNaN(totalWeight) ||
-        isNaN(eggCount) ||
-        isNaN(salePrice)
-    ){
+const netWeight=totalWeight-PAR_SANG;
+const totalPurchase=purchasePrice*totalWeight;
+const pricePerEgg=totalPurchase/eggCount;
+const totalSale=salePrice*netWeight;
+const salePerEgg=totalSale/eggCount;
+const totalProfit=totalSale-totalPurchase;
+const profitPerEgg=totalProfit/eggCount;
+const profitPercent=(totalProfit/totalPurchase)*100;
 
-        error.innerText="لطفاً تمام اطلاعات خرید و فروش را وارد کنید.";
-        error.style.display="block";
-        result.style.display="none";
-        return;
-    }
+document.getElementById("netWeight").innerText=formatWeight(netWeight)+" کیلو";
+document.getElementById("totalPurchase").innerText=formatNumber(totalPurchase)+" تومان";
+document.getElementById("pricePerEgg").innerText=formatNumber(pricePerEgg)+" تومان";
+document.getElementById("totalSale").innerText=formatNumber(totalSale)+" تومان";
+document.getElementById("salePerEgg").innerText=formatNumber(salePerEgg)+" تومان";
+document.getElementById("totalProfit").innerText=formatNumber(totalProfit)+" تومان";
+document.getElementById("profitPerEgg").innerText=formatNumber(profitPerEgg)+" تومان";
+document.getElementById("profitPercent").innerText=profitPercent.toFixed(2)+"٪";
 
-    if(purchasePrice <= 0){
+result.style.display="block";
 
-        error.innerText="قیمت خرید باید بیشتر از صفر باشد.";
-        error.style.display="block";
-        result.style.display="none";
-        return;
-    }
+const data={
+purchasePrice,
+totalWeight,
+eggCount,
+salePrice
+};
 
-    if(totalWeight <= PAR_SANG){
+localStorage.setItem("eggCalculatorData",JSON.stringify(data));
 
-        error.innerText="وزن کل باید بیشتر از 1.200 کیلوگرم باشد.";
-        error.style.display="block";
-        result.style.display="none";
-        return;
-    }
+let history=JSON.parse(localStorage.getItem("eggHistory")||"[]");
 
-    if(eggCount <= 0){
+history.unshift({
+id:Date.now(),
+date:new Date().toLocaleString("fa-IR"),
+eggCount,
+totalWeight,
+netWeight,
+totalPurchase,
+totalSale,
+totalProfit,
+profitPercent
+});
 
-        error.innerText="تعداد تخم‌مرغ باید بیشتر از صفر باشد.";
-        error.style.display="block";
-        result.style.display="none";
-        return;
-    }
+localStorage.setItem("eggHistory",JSON.stringify(history));
 
-    if(salePrice <= 0){
+showSuccess("✅ محاسبه انجام شد و در تاریخچه ذخیره شد.");
 
-        error.innerText="قیمت فروش باید بیشتر از صفر باشد.";
-        error.style.display="block";
-        result.style.display="none";
-        return;
-    }
-
-    const netWeight =
-        totalWeight - PAR_SANG;
-
-    const totalPurchase =
-        purchasePrice * totalWeight;
-
-    const pricePerEgg =
-        totalPurchase / eggCount;
-
-    const totalSale =
-        salePrice * netWeight;
-
-    const salePerEgg =
-        totalSale / eggCount;
-
-    const totalProfit =
-        totalSale - totalPurchase;
-
-    const profitPerEgg =
-        totalProfit / eggCount;
-
-    const profitPercent =
-        (totalProfit / totalPurchase) * 100;
-
-    document.getElementById("netWeight").innerText =
-        formatWeight(netWeight)+" کیلو";
-
-    document.getElementById("totalPurchase").innerText =
-        formatNumber(totalPurchase)+" تومان";
-
-    document.getElementById("pricePerEgg").innerText =
-        formatNumber(pricePerEgg)+" تومان";
-
-    document.getElementById("totalSale").innerText =
-        formatNumber(totalSale)+" تومان";
-
-    document.getElementById("salePerEgg").innerText =
-        formatNumber(salePerEgg)+" تومان";
-
-    document.getElementById("totalProfit").innerText =
-        formatNumber(totalProfit)+" تومان";
-
-    document.getElementById("profitPerEgg").innerText =
-        formatNumber(profitPerEgg)+" تومان";
-
-    document.getElementById("profitPercent").innerText =
-        profitPercent.toFixed(2)+"٪";
-
-    result.style.display="block";
-
-    localStorage.setItem("eggCalculatorData",JSON.stringify({
-
-        purchasePrice:purchasePrice,
-        totalWeight:totalWeight,
-        eggCount:eggCount,
-        salePrice:salePrice
-
-    }));
-
-    saved.innerText="✅ اطلاعات این محاسبه روی گوشی ذخیره شد.";
-
-    saved.style.display="block";
+displayHistory();
 }
 
 function loadSaved(){
 
-    const data =
-        localStorage.getItem("eggCalculatorData");
+const data=localStorage.getItem("eggCalculatorData");
+const success=document.getElementById("success");
 
-    const saved =
-        document.getElementById("saved");
+if(!data){
+success.innerText="هنوز اطلاعاتی ذخیره نشده است.";
+success.style.display="block";
+return;
+}
 
-    if(!data){
+const values=JSON.parse(data);
 
-        saved.innerText="هنوز اطلاعاتی ذخیره نشده است.";
-        saved.style.display="block";
-        return;
-    }
+document.getElementById("purchasePrice").value=values.purchasePrice;
+document.getElementById("totalWeight").value=values.totalWeight;
+document.getElementById("eggCount").value=values.eggCount;
+document.getElementById("salePrice").value=values.salePrice;
 
-    const values =
-        JSON.parse(data);
+success.innerText="✅ آخرین اطلاعات بازیابی شد.";
+success.style.display="block";
+}
 
-    document.getElementById("purchasePrice").value =
-        values.purchasePrice;
+function displayHistory(){
 
-    document.getElementById("totalWeight").value =
-        values.totalWeight;
+const list=document.getElementById("historyList");
+const history=JSON.parse(localStorage.getItem("eggHistory")||"[]");
 
-    document.getElementById("eggCount").value =
-        values.eggCount;
+if(history.length===0){
+list.innerHTML='<div class="empty">هنوز محاسبه‌ای ثبت نشده است.</div>';
+return;
+}
 
-    document.getElementById("salePrice").value =
-        values.salePrice;
+list.innerHTML="";
 
-    saved.innerText="✅ آخرین اطلاعات بازیابی شد.";
+history.forEach(item=>{
 
-    saved.style.display="block";
+const div=document.createElement("div");
+div.className="history-item";
+
+div.innerHTML=`
+<div class="history-date">${item.date}</div>
+<div class="history-main">
+🥚 ${formatNumber(item.eggCount)} عدد | ${formatWeight(item.totalWeight)} کیلو
+</div>
+<div>خرید: ${formatNumber(item.totalPurchase)} تومان</div>
+<div>فروش: ${formatNumber(item.totalSale)} تومان</div>
+<div class="history-profit">
+سود: ${formatNumber(item.totalProfit)} تومان
+</div>
+<div>درصد سود: ${item.profitPercent.toFixed(2)}٪</div>
+<div class="history-actions">
+<button class="secondary" onclick="loadHistory(${item.id})">مشاهده</button>
+<button class="danger" onclick="deleteHistory(${item.id})">حذف</button>
+</div>
+`;
+
+list.appendChild(div);
+});
+}
+
+function loadHistory(id){
+
+const history=JSON.parse(localStorage.getItem("eggHistory")||"[]");
+const item=history.find(x=>x.id===id);
+
+if(!item)return;
+
+document.getElementById("purchasePrice").value=
+item.totalPurchase/item.totalWeight;
+
+document.getElementById("totalWeight").value=
+item.totalWeight;
+
+document.getElementById("eggCount").value=
+item.eggCount;
+
+document.getElementById("salePrice").value=
+item.totalSale/item.netWeight;
+
+window.scrollTo({top:0,behavior:"smooth"});
+
+showSuccess("✅ اطلاعات این محاسبه در فرم قرار گرفت.");
+}
+
+function deleteHistory(id){
+
+let history=JSON.parse(localStorage.getItem("eggHistory")||"[]");
+
+history=history.filter(item=>item.id!==id);
+
+localStorage.setItem("eggHistory",JSON.stringify(history));
+
+displayHistory();
+}
+
+function clearHistory(){
+
+if(!confirm("آیا مطمئن هستید که کل تاریخچه حذف شود؟")){
+return;
+}
+
+localStorage.removeItem("eggHistory");
+
+displayHistory();
+
+showSuccess("🗑 تاریخچه حذف شد.");
+}
+
+displayHistory();
+
+if("serviceWorker" in navigator){
+navigator.serviceWorker.register("./sw.js")
+.then(()=>console.log("Service Worker فعال شد"))
+.catch(error=>console.log("خطا:",error));
 }
 
 </script>
-<script>
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./sw.js")
-        .then(() => console.log("Service Worker فعال شد"))
-        .catch(error => console.log("خطا:", error));
-}
-</script>
+
 </body>
 </html>
