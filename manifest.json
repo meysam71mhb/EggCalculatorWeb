@@ -1,0 +1,12 @@
+{
+  "name": "هایپر پاندا | محاسبه‌گر تخم‌مرغ",
+  "short_name": "محاسبه‌گر تخم‌مرغ",
+  "description": "محاسبه خرید، فروش و سود تخم‌مرغ",
+  "start_url": "index2.html",
+  "display": "standalone",
+  "background_color": "#f4f5f7",
+  "theme_color": "#111111",
+  "lang": "fa",
+  "dir": "rtl",
+  "icons": []
+}
