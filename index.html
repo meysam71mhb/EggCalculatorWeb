@@ -7,276 +7,51 @@
 <link rel="manifest" href="manifest.json">
 
 <style>
-*{
-box-sizing:border-box;
-font-family:Tahoma,Arial,sans-serif
-}
 
-body{
-margin:0;
-min-height:100vh;
-background:#f4f5f7;
-color:#222
-}
+*{box-sizing:border-box;font-family:Tahoma,Arial,sans-serif}
+html,body{margin:0;padding:0;width:100%;overflow-x:hidden}
+body{background:#f4f5f7;color:#222;font-size:14px}
+.header{background:#111;color:#fff;text-align:center;padding:12px 10px}
+.brand{font-size:21px;font-weight:bold;margin:0 0 3px}
+.header h1{font-size:16px;margin:0}
+.header p{font-size:11px;color:#bbb;margin:4px 0 0}
+.container{width:100%;max-width:480px;margin:auto;padding:8px}
+.card{background:#fff;border-radius:12px;padding:12px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card h2{font-size:16px;margin:0 0 6px}
+label{display:block;font-size:12px;font-weight:bold;margin:8px 0 4px}
+input{width:100%;padding:9px;border:1px solid #ddd;border-radius:9px;font-size:14px;background:#fff;outline:none}
+input:focus{border-color:#111}
+button{width:100%;border:0;border-radius:9px;padding:10px;margin-top:9px;background:#111;color:#fff;font-size:14px;font-weight:bold}
+button:active{transform:scale(.98)}
+.secondary{background:#eee;color:#222;margin-top:6px}
+.danger{background:#b00020;color:#fff;margin-top:6px}
+.result{display:none}
+.result-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee;gap:8px}
+.result-row:last-child{border-bottom:0}
+.result-label{color:#666;font-size:12px}
+.result-value{font-weight:bold;text-align:left;font-size:13px}
+.profit{background:#f0f8f0;border-radius:9px;padding:2px 8px;margin-top:6px}
+.error,.success{display:none;padding:9px;border-radius:8px;margin-top:8px;font-size:12px}
+.error{background:#ffe8e8;color:#b00020}
+.success{background:#e8f5e9;color:#246b2a}
+.history-item{border:1px solid #eee;border-radius:10px;padding:10px;margin-bottom:7px;background:#fafafa}
+.history-date{font-size:10px;color:#888;margin-bottom:4px}
+.history-main{font-size:12px;font-weight:bold;margin-bottom:4px}
+.history-profit{font-size:12px;font-weight:bold}
+.history-actions{display:flex;gap:6px}
+.history-actions button{margin-top:6px;padding:7px;font-size:11px}
+.empty{text-align:center;color:#999;padding:12px}
+.footer{text-align:center;color:#888;font-size:10px;padding:10px;line-height:1.7}
+.developer{color:#555;font-weight:bold}
+#loginScreen{position:fixed;inset:0;background:#111;display:flex;align-items:center;justify-content:center;padding:15px;z-index:99999}
+.login-box{width:100%;max-width:330px;background:#fff;border-radius:16px;padding:20px 16px;box-shadow:0 8px 25px rgba(0,0,0,.3);text-align:center}
+.login-logo{font-size:42px;margin-bottom:4px}
+.login-title{font-size:20px;font-weight:bold;margin-bottom:5px}
+.login-subtitle{font-size:11px;color:#777;margin-bottom:14px}
+.login-box input{text-align:center}
+.login-error{display:none;color:#b00020;background:#ffe8e8;padding:8px;border-radius:8px;margin-top:8px;font-size:11px}
+#app{display:none}
 
-.header{
-background:#111;
-color:#fff;
-padding:22px 18px;
-text-align:center
-}
-
-.brand{
-font-size:28px;
-font-weight:bold;
-margin-bottom:8px
-}
-
-.header h1{
-margin:0;
-font-size:21px
-}
-
-.header p{
-margin:8px 0 0;
-color:#bbb;
-font-size:13px
-}
-
-.container{
-width:100%;
-max-width:520px;
-margin:auto;
-padding:18px
-}
-
-.card{
-background:#fff;
-border-radius:18px;
-padding:20px;
-margin-bottom:16px;
-box-shadow:0 4px 18px rgba(0,0,0,.07)
-}
-
-.card h2{
-margin-top:0;
-font-size:19px
-}
-
-label{
-display:block;
-margin-top:16px;
-margin-bottom:7px;
-font-size:14px;
-font-weight:bold
-}
-
-input{
-width:100%;
-padding:14px;
-border:1px solid #ddd;
-border-radius:12px;
-font-size:16px;
-outline:none;
-background:#fff
-}
-
-input:focus{
-border-color:#111
-}
-
-button{
-width:100%;
-border:0;
-border-radius:13px;
-padding:15px;
-margin-top:20px;
-background:#111;
-color:#fff;
-font-size:17px;
-font-weight:bold
-}
-
-button:active{
-transform:scale(.98)
-}
-
-.secondary{
-background:#eee;
-color:#222;
-margin-top:10px
-}
-
-.danger{
-background:#b00020;
-color:#fff;
-margin-top:10px
-}
-
-.result{
-display:none
-}
-
-.result-row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:13px 0;
-border-bottom:1px solid #eee;
-gap:15px
-}
-
-.result-row:last-child{
-border-bottom:0
-}
-
-.result-label{
-color:#666;
-font-size:14px
-}
-
-.result-value{
-font-weight:bold;
-text-align:left
-}
-
-.profit{
-background:#f0f8f0;
-border-radius:12px;
-padding:5px 12px;
-margin-top:12px
-}
-
-.error{
-display:none;
-background:#ffe8e8;
-color:#b00020;
-padding:12px;
-border-radius:10px;
-margin-top:15px;
-font-size:14px
-}
-
-.success{
-display:none;
-background:#e8f5e9;
-color:#246b2a;
-padding:12px;
-border-radius:10px;
-margin-top:15px;
-font-size:14px
-}
-
-.history-item{
-border:1px solid #eee;
-border-radius:14px;
-padding:15px;
-margin-bottom:12px;
-background:#fafafa
-}
-
-.history-date{
-font-size:12px;
-color:#888;
-margin-bottom:8px
-}
-
-.history-main{
-font-weight:bold;
-margin-bottom:8px
-}
-
-.history-profit{
-font-weight:bold
-}
-
-.history-actions{
-display:flex;
-gap:8px
-}
-
-.history-actions button{
-margin-top:10px;
-padding:10px;
-font-size:13px
-}
-
-.empty{
-text-align:center;
-color:#999;
-padding:20px
-}
-
-.footer{
-text-align:center;
-color:#888;
-font-size:12px;
-padding:18px;
-line-height:2
-}
-
-.developer{
-color:#555;
-font-weight:bold
-}
-
-/* LOGIN */
-
-#loginScreen{
-position:fixed;
-inset:0;
-background:#111;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:99999
-}
-
-.login-box{
-width:100%;
-max-width:380px;
-background:#fff;
-border-radius:22px;
-padding:28px 22px;
-box-shadow:0 10px 40px rgba(0,0,0,.35);
-text-align:center
-}
-
-.login-logo{
-font-size:52px;
-margin-bottom:8px
-}
-
-.login-title{
-font-size:24px;
-font-weight:bold;
-margin-bottom:8px
-}
-
-.login-subtitle{
-font-size:13px;
-color:#777;
-margin-bottom:22px
-}
-
-.login-box input{
-text-align:center
-}
-
-.login-error{
-display:none;
-color:#b00020;
-background:#ffe8e8;
-padding:11px;
-border-radius:10px;
-margin-top:12px;
-font-size:13px
-}
-
-#app{
-display:none
-}
 </style>
 </head>
 
